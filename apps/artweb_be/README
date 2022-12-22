@@ -1,0 +1,19 @@
+# Opalstack Node.js README
+
+## Controlling your app
+
+Start your app by running:
+
+   /home/artweb/apps/artweb_be/start
+
+Stop your app by running:
+
+   /home/artweb/apps/artweb_be/stop
+
+## Installing modules
+
+If you want to install Node modules in your app directory:
+
+cd /home/artweb/apps/artweb_be
+npm install modulename
+

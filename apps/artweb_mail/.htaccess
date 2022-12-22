@@ -1,0 +1,8 @@
+Options +FollowSymLinks
+Options +Indexes
+
+#Protect Directory
+AuthName "Are you a curator?"
+AuthType Basic
+AuthUserFile /home/artweb/etc/devmail.pw
+Require valid-user

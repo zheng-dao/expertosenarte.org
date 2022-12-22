@@ -1,0 +1,18 @@
+#!/bin/bash
+export TMPDIR=/home/artweb/apps/prod_artweb_be/tmp
+mkdir -p /home/artweb/apps/prod_artweb_be/tmp
+PIDFILE="/home/artweb/apps/prod_artweb_be/tmp/node.pid"
+NODE=/home/artweb/apps/prod_artweb_be/node/bin/node
+
+if [ -e "$PIDFILE" ] && (pgrep -u artweb | grep -x -f $PIDFILE &> /dev/null); then
+  echo "Node.js for artweb_be already running."
+  exit 99
+fi
+
+export PORT=53540
+APP_DIR=/home/artweb/apps/prod_artweb_be/art-experts-
+cd $APP_DIR
+/usr/sbin/daemonize -c $APP_DIR -e ~/logs/apps/prod_artweb_be/node_error.log -o ~/logs/apps/prod_artweb_be/node_output.log -p $PIDFILE $NODE bin/www
+
+
+echo "Started Node.js for artweb_be."
